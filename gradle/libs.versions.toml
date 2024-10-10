@@ -1,6 +1,6 @@
 [versions]
 agp = "8.4.0"
-kotlin = "1.9.0"
+kotlin = "1.9.25"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -9,6 +9,18 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
+room_version = "2.6.1"
+ksp_version = "1.9.25-1.0.20"
+rxandroid_version="3.0.2"
+rxjava_version="3.1.8"
+adapterRxjava3_version="2.11.0"
+gson_version="2.11.0"
+retrofit_version="2.11.0"
+viewModel_version="2.8.4"
+liveData_version="2.8.4"
+lifecycle_version="2.8.4"
+reactiveStreams_version="2.8.4"
+picasso_version="2.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -19,8 +31,26 @@ androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+room = {group = "androidx.room", name = "room-runtime", version.ref = "room_version"}
+roomCommon = {group = "androidx.room", name = "room-common", version.ref = "room_version"}
+room-compiler = {group="androidx.room", name = "room-compiler", version.ref ="room_version"}
+room-ktx = {group = "androidx.room", name = "room-ktx", version.ref = "room_version"}
+room-rxjava3 = {group = "androidx.room", name = "room-rxjava3", version.ref ="room_version"}
 
+rxandroid = {group = "io.reactivex.rxjava3", name = "rxandroid", version.ref ="rxandroid_version"}
+rxjava = {group = "io.reactivex.rxjava3", name = "rxjava", version.ref ="rxjava_version"}
+adapterRxjava3 = {group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref ="adapterRxjava3_version"}
+gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref ="gson_version"}
+retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref ="retrofit_version"}
+
+viewModel = {group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref ="viewModel_version"}
+liveData = {group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref ="liveData_version"}
+liveDataCompiler = {group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref ="lifecycle_version"}
+reactiveStreams = {group = "androidx.lifecycle", name = "lifecycle-reactivestreams-ktx", version.ref ="reactiveStreams_version"}
+
+picasso = {group = "com.squareup.picasso", name = "picasso", version.ref ="picasso_version"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ksp = {id = "com.google.devtools.ksp", version.ref ="ksp_version"}
 

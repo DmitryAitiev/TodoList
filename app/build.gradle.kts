@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -49,4 +50,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.room)
+    implementation(libs.roomCommon)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.room.rxjava3)
+    implementation(libs.rxandroid)
+    implementation(libs.rxjava)
+    implementation(libs.adapterRxjava3)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.viewModel)
+    implementation(libs.liveData)
+    ksp(libs.liveDataCompiler)
+    implementation(libs.reactiveStreams)
+    implementation(libs.picasso)
 }
