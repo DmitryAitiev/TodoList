@@ -10,15 +10,15 @@ import com.example.todolist.databinding.NoteItemBinding
 import org.w3c.dom.Text
 
 class NotesAdapter : RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
-    private var notes: MutableList<Note> = mutableListOf()
+    private var notes: List<Note> = listOf()
     private var onNoteClickListener: OnNoteClickListener?= null
 
     fun setOnNoteClickListener(onNoteClickListener: OnNoteClickListener?) {
         this.onNoteClickListener = onNoteClickListener
     }
-    fun getNotes(): MutableList<Note> = notes.toMutableList()
+    fun getNotes(): List<Note> = notes.toList()
 
-    fun setNotes(notes: MutableList<Note>) {
+    fun setNotes(notes: List<Note>) {
         this.notes = notes
         notifyDataSetChanged()
     }

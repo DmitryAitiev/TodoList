@@ -9,13 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.todolist.databinding.ActivityAddNoteBinding
 import com.example.todolist.databinding.ActivityMainBinding
 
 class AddNoteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddNoteBinding
-    private lateinit var db: NoteDatabase
-    private val handler = Handler(Looper.getMainLooper())
+    private lateinit var viewModel: AddNoteViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,7 +26,8 @@ class AddNoteActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        db = NoteDatabase.getInstance(this)
+        viewModel = ViewModelProvider(this).get(AddNoteViewModel::class.java)
+        viewModel.getShouldCloseScreen().observe(this, {shouldClose -> if (shouldClose) finish()})
         binding.buttonSave.setOnClickListener {
             saveNote()
         }
@@ -35,13 +36,7 @@ class AddNoteActivity : AppCompatActivity() {
         val text = binding.editTextNote.text.toString().trim()
         val priority = getPriority()
         val note = Note(text = text, priority = priority)
-        val thread = Thread(object : Runnable {
-            override fun run() {
-                db.notesDao().add(note)
-                finish()
-            }
-        })
-        thread.start()
+        viewModel.saveNote(note)
     }
     private fun getPriority(): Int {
         val priority = if (binding.rbLow.isChecked) 0
